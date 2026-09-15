@@ -1,37 +1,3 @@
-// import React from "react";
-
-// function Signup() {
-//   return (
-//     <div className="container">
-//       <div className="row p-5 mb-2 mt-5">
-//         <h1 className="fs-2 text-center">
-//           Open a free demat and trading account online
-//         </h1>
-//         <p className="fs-4 text-center text-muted">
-//           Start investing brokerage free and join a community of 1.6+ crore
-//           investors and traders
-//         </p>
-//       </div>
-
-//       <div className="row " style={{ lineHeight: "1.8", fontSize: "1.2em" }}>
-//         <div className="col-md-6 p-5">
-//           <img src="/media/images/signup.png" alt="" />
-//         </div>
-//         <div className="col-md-6 p-5">
-//           <h1 className="fs-3">Signup now</h1>
-//           <p className="fs-5 text-muted">Or track your existing application</p>
-//           <form>
-//             <textarea></textarea>
-//             <button type="button" class="btn btn-primary">Primary</button>
-//           </form>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default Signup;
-
 import React, { useState } from "react";
 
 function Signup() {
@@ -40,7 +6,7 @@ function Signup() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Submitting number:", mobileNumber);
-    // Add your API logic here
+    
   };
 
   return (
