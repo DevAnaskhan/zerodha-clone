@@ -210,7 +210,7 @@ app.post('/newOrder', async (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log("App started!");
+  console.log(`App started! on the port ${PORT} `);
   mongoose.connect(mongoUrl);
   console.log("DB connected!");
 });
