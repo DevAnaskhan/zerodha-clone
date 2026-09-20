@@ -60,11 +60,11 @@ function Signup() {
           {/* Additional Terms Link */}
           <p className="fs-6 text-muted mt-3">
             By proceeding, you agree to the{" "}
-            <a href="" style={{ textDecorationLine: "none" }}>
+            <a href="/" style={{ textDecorationLine: "none" }}>
               terms
             </a>{" "}
             &{" "}
-            <a href="" style={{ textDecorationLine: "none" }}>
+            <a href="/" style={{ textDecorationLine: "none" }}>
               privacy
             </a>{" "}
             policy.

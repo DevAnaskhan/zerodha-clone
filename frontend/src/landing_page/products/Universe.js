@@ -11,30 +11,31 @@ function Universe() {
         </p>
 
         <div className="col-4 p-3 mt-3">
-          <img src="media/images/smallcaseLogo.png" style={{ width: "40%" }} />
+          <img src="media/images/smallcaseLogo.png" alt="Smallcase" style={{ width: "40%" }} />
           <p className="text-small text-muted">Thematic investing platform</p>
         </div>
         <div className="col-4 p-3 mt-3">
-          <img src="media/images/sensibullLogo.svg" style={{ width: "40%" }} />
+          <img src="media/images/sensibullLogo.svg" alt="Sensibull" style={{ width: "40%" }} />
           <p className="text-small text-muted">Options trading platform</p>
         </div>
         <div className="col-4 p-3 mt-3">
-          <img src="media/images/streakLogo.png" style={{ width: "40%" }} />
+          <img src="media/images/streakLogo.png" alt="Streak" style={{ width: "40%" }} />
           <p className="text-small text-muted">Systematic trading platform</p>
         </div>
         <div className="col-4 p-3 mt-3">
           <img
             src="media/images/zerodhaFundhouse.png"
+            alt="Zerodha Fund House"
             style={{ width: "40%" }}
           />
           <p className="text-small text-muted">Asset management</p>
         </div>
         <div className="col-4 p-3 mt-3">
-          <img src="media/images/goldenpiLogo.png" style={{ width: "40%" }} />
+          <img src="media/images/goldenpiLogo.png" alt="GoldenPi" style={{ width: "40%" }} />
           <p className="text-small text-muted">Bond trading Platform</p>
         </div>
         <div className="col-4 p-3 mt-3">
-          <img src="media/images/dittoLogo.png" style={{ width: "40%" }} />
+          <img src="media/images/dittoLogo.png" alt="Ditto" style={{ width: "40%" }} />
           <p className="text-small text-muted">Personalized advice </p>
         </div>
         <button

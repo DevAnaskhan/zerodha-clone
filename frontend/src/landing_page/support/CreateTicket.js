@@ -1,5 +1,8 @@
 import React from "react";
 
+// Topic destinations are placeholders until individual support articles are added.
+/* eslint-disable jsx-a11y/anchor-is-valid */
+
 function CreateTicket() {
   return (
     <div className="container">
