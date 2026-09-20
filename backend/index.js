@@ -11,11 +11,47 @@ const { OrdersModel } = require('./model/OrdersModel');
 
 const PORT = process.env.PORT || 3002;
 const mongoUrl = process.env.MONGO_URL;
+const allowedOrigins = process.env.FRONTEND_ORIGINS
+  ? process.env.FRONTEND_ORIGINS.split(",").map((origin) => origin.trim())
+  : [];
 
 const app = express();
 
-app.use(cors());
+app.use(
+  cors({
+    origin(origin, callback) {
+      // Allow server-to-server requests and restrict browser requests in production.
+      if (!origin || allowedOrigins.length === 0 || allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      }
+
+      return callback(new Error("Origin is not allowed by CORS"));
+    },
+  })
+);
 app.use(bodyParser.json());
+
+let databaseConnection;
+
+async function connectToDatabase() {
+  if (mongoose.connection.readyState === 1) return;
+
+  if (!mongoUrl) {
+    throw new Error("MONGO_URL is not configured");
+  }
+
+  databaseConnection ??= mongoose.connect(mongoUrl);
+  await databaseConnection;
+}
+
+app.use(async (req, res, next) => {
+  try {
+    await connectToDatabase();
+    next();
+  } catch (error) {
+    next(error);
+  }
+});
 
 // app.get("/addHoldings", async (req, res) => {
 //   let tempHoldings = [
@@ -209,8 +245,15 @@ app.post('/newOrder', async (req, res) => {
   res.send("Order saved!");
 });
 
-app.listen(PORT, () => {
-  console.log(`App started! on the port ${PORT} `);
-  mongoose.connect(mongoUrl);
-  console.log("DB connected!");
+app.use((error, req, res, next) => {
+  console.error(error);
+  res.status(500).json({ error: "Unable to process the request" });
 });
+
+module.exports = app;
+
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`App started on port ${PORT}`);
+  });
+}
